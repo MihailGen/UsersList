@@ -119,6 +119,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Пользователи будут перенаправлены на главную страницу после входа в систему
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = "login"
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
