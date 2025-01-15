@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 WORKDIR /app
 
 
-COPY --chown=app:app . .
+COPY . .
 
 RUN pip install -r requirements.txt
 
