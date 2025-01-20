@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97dcf781-eaaf-4c46-84cc-525416cbb665" name="Changes" comment="V5">
-      <change afterPath="$PROJECT_DIR$/Create_backup.sh" afterDir="false" />
+    <list default="true" id="97dcf781-eaaf-4c46-84cc-525416cbb665" name="Changes" comment="Скрипт по созданию бекапа">
+      <change afterPath="$PROJECT_DIR$/Create_volume.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736966887219</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Скрипт по созданию бекапа">
+      <option name="closed" value="true" />
+      <created>1737414160176</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737414160176</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,7 +192,8 @@
     <MESSAGE value="V2" />
     <MESSAGE value="V3" />
     <MESSAGE value="V4" />
-    <option name="LAST_COMMIT_MESSAGE" value="V4" />
+    <MESSAGE value="Скрипт по созданию бекапа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Скрипт по созданию бекапа" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
