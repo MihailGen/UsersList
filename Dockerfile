@@ -7,9 +7,7 @@ ENV PYTHONBUFFERED 1
 
 RUN pip install --upgrade pip
 
-
 WORKDIR /app
-
 
 COPY . .
 
@@ -17,6 +15,5 @@ RUN pip install -r requirements.txt
 
 USER app
 
-
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
