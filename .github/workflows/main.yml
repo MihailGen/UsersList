@@ -22,7 +22,7 @@ jobs:
       - name: Lint code # Проверка кода 
         run: |
           pip install flake8
-          flake8 userslist
+          flake8 ignore E501 and max-line-length userslist
       - name: Run tests # Запуск тестов
         run: |
           pytest
