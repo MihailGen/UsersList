@@ -9,7 +9,7 @@ jobs:
   build: # Имя задачи
     runs-on: ubuntu-latest # Тип виртуальной машины
     steps:
-      - name: Checkout code # Первый шаг - клонирование репозитория
+      - name: Checkout code # Клонирование репозитория
         uses: actions/checkout@v2
       - name: Set up Python # Установка Python
         uses: actions/setup-python@v2
@@ -22,7 +22,7 @@ jobs:
       - name: Lint code # Проверка кода 
         run: |
           pip install flake8
-          flake8 path/to/UsersList
+          flake8 userslist
       - name: Run tests # Запуск тестов
         run: |
           pytest
