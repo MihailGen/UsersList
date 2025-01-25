@@ -1,0 +1,24 @@
+name: CI/CD Pipeline # Имя рабочего процесса
+
+on:
+  push: # Событие, которое запускает рабочий процесс
+    branches:
+      - main # Рабочий процесс запускается при пуше в ветку main
+
+jobs:
+  build: # Имя задачи
+    runs-on: ubuntu-latest # Тип виртуальной машины
+    steps:
+      - name: Checkout code # Первый шаг - клонирование репозитория
+        uses: actions/checkout@v2
+      - name: Set up Python # Установка Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Install dependencies # Установка зависимостей
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests # Запуск тестов
+        run: |
+          pytest
