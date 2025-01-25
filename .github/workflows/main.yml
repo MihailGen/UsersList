@@ -22,7 +22,7 @@ jobs:
       - name: Lint code # Проверка кода 
         run: |
           pip install flake8
-          flake8 'UsersList'
+          flake8 path/to/UsersList
       - name: Run tests # Запуск тестов
         run: |
           pytest
