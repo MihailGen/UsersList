@@ -1,4 +1,5 @@
-from django.contrib.auth import get_user_model
+import logging
+
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -14,12 +15,21 @@ from .models import User
 from .permissions import CanEdit
 from .serializers import RegisterSerializer
 
+logging.config.fileConfig('config.ini')
+logger = logging.getLogger(__name__)
+
 
 def home(request):
-    return render(request, "users/home.html")
+    logger.debug("Отладка из функции создания домашней странички")
+    logger.info('Вход пользователя ' + request.user.username + ' на домашнюю страничку')
+    try:
+        return render(request, "users/home.html")
+    except Exception as e:
+        logger.error(f"Произошла ошибка создания домашней страницы {e}")
 
 
 '''
+# Прежняя домашняя страничка приложения
 def base(request):
     users = User.objects.all()
     return render(request, 'base.html', {'users': users})
@@ -27,28 +37,53 @@ def base(request):
 
 
 class SignUp(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "users/signup.html"
+    logger.debug("Отладка из представления SignUp")
+    logger.info('Создание странички аутентификация пользователя')
+    try:
+        form_class = UserCreationForm
+        success_url = reverse_lazy("login")
+        template_name = "users/signup.html"
+    except Exception as e:
+        logger.error(f"Произошла ошибка создания страницы аутентификации {e}")
 
 
 class MyTokenObtainPairView(TokenObtainPairView):
-    permission_classes = (AllowAny,)
+    logger.debug("Отладка из MyTokenObtainPairView")
+    logger.info('Работа с токенами')
+    try:
+        permission_classes = (AllowAny,)
+    except Exception as e:
+        logger.error(f"Произошла ошибка прав аутентификации {e}")
 
 
 class RegisterView(generics.CreateAPIView):
-    queryset = User.objects.all()
-    permission_classes = (AllowAny,)
-    serializer_class = RegisterSerializer
+    logger.debug("Отладка из представления RegisterView")
+    logger.info('Работа со списком пользователей')
+    try:
+        queryset = User.objects.all()
+        permission_classes = (AllowAny,)
+        serializer_class = RegisterSerializer
+    except Exception as e:
+        logger.error(f"Произошла ошибка: {e}")
 
 
 class CustomView(APIView):
-    permission_classes = [IsAuthenticated]
+    logger.debug("Отладка из CustomView")
+    logger.info('Работа со списком пользователей')
+    try:
+        permission_classes = [IsAuthenticated]
+    except Exception as e:
+        logger.error(f"Произошла ошибка прав аутентификации: {e}")
 
 
 class MyModelViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = RegisterSerializer
+    logger.debug("Отладка из MyModelViewSet")
+    logger.info('Работа со списком пользователей')
+    try:
+        queryset = User.objects.all()
+        serializer_class = RegisterSerializer
+    except Exception as e:
+        logger.error(f"Произошла ошибка: {e}")
     permission_classes = [CanEdit]
 
     def perform_create(self, serializer):

@@ -1,7 +1,14 @@
-# This is a sample Python script.
+# main.py
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import logging
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+
+def main():
+    logger = logging.getLogger(__name__)
+    logger.info('Запуск основного приложения')
 
 
 def print_hi(name):
@@ -11,6 +18,6 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

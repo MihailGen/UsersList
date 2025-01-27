@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.User'
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -142,3 +143,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
