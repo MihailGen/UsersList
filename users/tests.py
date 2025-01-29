@@ -22,3 +22,18 @@ class AuthenticatedAPITests(APITestCase):
         url = reverse('register')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)  # Доступ разрешен для аутентифицированного пользователя
+
+    def test_signup(self):
+        url = reverse('signup')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)  # Доступ разрешен для аутентифицированного пользователя
+
+    def test_api_register(self):
+        url = reverse('register')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)  # Доступ разрешен для аутентифицированного пользователя
+
+    def test_home(self):
+        url = reverse('home')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)  # Доступ разрешен для аутентифицированного пользователя
