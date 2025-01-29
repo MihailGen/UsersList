@@ -1,28 +1,26 @@
 import logging
+from datetime import time
 
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from fastapi import FastAPI, Request
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import Response
 
 from .models import User
 from .permissions import CanEdit
 from .serializers import RegisterSerializer
 
-from datetime import time
-
 # ----------------- Prometheus encapsulate --------------------------
-
-from fastapi import FastAPI, Request
-from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.responses import Response
 
 app = FastAPI()
 
@@ -62,8 +60,6 @@ def heavy_compute():
 
 
 # --------------- Prometheus End ---------------------------------
-
-
 
 
 logging.config.fileConfig('config.ini')
