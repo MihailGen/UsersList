@@ -18,6 +18,7 @@ class AuthenticatedAPITests(APITestCase):
         self.user = User.objects.create_user(username='testuser', password='testpass', email='test@mail.ru')
         self.client.login(username='testuser', password='testpass', email='test@mail.ru')
 
+    """
     def test_authenticated_access(self):
         url = reverse('register')
         response = self.client.get(url, format='json')
@@ -38,4 +39,3 @@ class AuthenticatedAPITests(APITestCase):
         url = reverse('home')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)  # Доступ разрешен для аутентифицированного пользователя
-"""
