@@ -18,13 +18,13 @@ class AuthenticatedAPITests(APITestCase):
         self.user = User.objects.create_user(username='testuser', password='testpass', email='test@mail.ru')
         self.client.login(username='testuser', password='testpass', email='test@mail.ru')
 
-    """
+
     def test_authenticated_access(self):
         url = reverse('register')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)  # Доступ разрешен для аутентифицированного пользователя
 
-    """
+
     def test_signup(self):
         url = reverse('signup')
         response = self.client.get(url, format='json')
