@@ -86,6 +86,15 @@ WSGI_APPLICATION = 'userslist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:'
+    }
+}
+
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -95,7 +104,8 @@ DATABASES = {
         'HOST': 'localhost',  # Хост, по умолчанию 'localhost', опционально
         'PORT': '5432',  # Порт, по умолчанию '5432', опционально
     }
-}
+
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
